@@ -4,8 +4,20 @@
 
 .App-logo {
   animation: App-logo-spin infinite 0s linear;
-  height: 60vmin;
-  width: 190vmin;
+  height: 70vmin;
+  width: 210vmin;
+  opacity: 0.9;
+  
+}
+
+#content-stuff {
+  position: relative;
+} 
+
+#content-over-image {
+  position: absolute;
+  top: 220px;
+  left: 150px;
 }
 
 .App-header {
