@@ -13,20 +13,20 @@ class Navbar extends Component {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Location
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Antartica</a>
-          <a class="dropdown-item" href="#">Africa</a>
-          <a class="dropdown-item" href="#">Asia</a>
-          <a class="dropdown-item" href="#">Australia</a>
-          <a class="dropdown-item" href="#">Europe</a>
-          <a class="dropdown-item" href="#">North America</a>
-          <a class="dropdown-item" href="#">South America</a>
+          <a class="dropdown-item" href="/antartica">Antartica</a>
+          <a class="dropdown-item" href="/africa">Africa</a>
+          <a class="dropdown-item" href="/asia">Asia</a>
+          <a class="dropdown-item" href="/australia">Australia</a>
+          <a class="dropdown-item" href="/europe">Europe</a>
+          <a class="dropdown-item" href="/northamerica">North America</a>
+          <a class="dropdown-item" href="/southamerica">South America</a>
 
         </div>      
       </li>
@@ -35,10 +35,10 @@ class Navbar extends Component {
           Members
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Register</a>
+          <a class="dropdown-item" href="/register">Register</a>
 
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Log in</a>
+          <a class="dropdown-item" href="/login">Log in</a>
         </div>      
       </li>
  
