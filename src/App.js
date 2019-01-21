@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './city.jpg';
 import './App.css';
 import Navbar from './Components/Navbar';
+import { BrowserRouter, Route } from 'react-router-dom'
+import Home from './Components/Home';
+import Register from './Components/Register';
+import LogIn from './Components/LogIn';
+import Asia from './Components/Asia';
+import Turkey from './Components/Asia';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <Navbar/>
-        <header className="App-header">
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Route path= '/home' component={Home} />
+          <Route path= '/register' component={Register} />
+          <Route path= '/login' component={LogIn} />
+          <Route path= '/asia' component={Asia} />
+          <Route path= '/turkey' component={Turkey} />
 
-          <div id="content-stuff">
-            <img src={logo} className="App-logo" alt="logo" />
-            <div id="content-over-image">
-              <h1>The world is in your hands... </h1>
-            </div>
-          </div>
-
-
-        </header>
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
