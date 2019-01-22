@@ -6,7 +6,7 @@ import Home from './Components/Home';
 import Register from './Components/Register';
 import LogIn from './Components/LogIn';
 import Asia from './Components/Asia';
-import Turkey from './Components/Asia';
+import Turkey from './Components/Turkey';
 
 class App extends Component {
   render() {
@@ -14,6 +14,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          <Route exact path="/" component={Home} />
           <Route path= '/home' component={Home} />
           <Route path= '/register' component={Register} />
           <Route path= '/login' component={LogIn} />

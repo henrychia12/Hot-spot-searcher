@@ -25,6 +25,12 @@
   left: 150px;
 }
 
+#content-over-image-asia {
+  position: absolute;
+  top: 150px;
+  left: 380px;
+}
+
 .App-header {
   background-color: #FFFFFF;
   min-height: 90vh;
