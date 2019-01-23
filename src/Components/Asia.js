@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../asia-image.jpg';
+import logo from '../cappadocia-img.jpg';
 
 const Asia = () => {
     return (
@@ -24,6 +24,7 @@ const Asia = () => {
             <button type="button" class="btn btn-outline-info">Nepal</button>
             <button type="button" class="btn btn-outline-info">Pakistan</button>
             <button type="button" class="btn btn-outline-info">Singapore</button>
+            <button type="button" class="btn btn-outline-info">Thailand</button>
             <button type="button" class="btn btn-outline-info">Turkey</button>
             </div>
         </div>
