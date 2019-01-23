@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../cappadocia-img.jpg';
+import logo from '../asia-image.jpg';
+import {Link, NavLink} from 'react-router-dom';
 
 const Asia = () => {
     return (
@@ -14,18 +15,18 @@ const Asia = () => {
                 </div>
             </header>
             <div>
-            <button type="button" class="btn btn-outline-info">Bahrain</button>
-            <button type="button" class="btn btn-outline-info">Cambodia</button>
-            <button type="button" class="btn btn-outline-info">China</button>
-            <button type="button" class="btn btn-outline-info">Cyprus</button>
-            <button type="button" class="btn btn-outline-info">Japan</button>
-            <button type="button" class="btn btn-outline-info">Kuwait</button>
-            <button type="button" class="btn btn-outline-info">Malaysia</button>
-            <button type="button" class="btn btn-outline-info">Nepal</button>
-            <button type="button" class="btn btn-outline-info">Pakistan</button>
-            <button type="button" class="btn btn-outline-info">Singapore</button>
-            <button type="button" class="btn btn-outline-info">Thailand</button>
-            <button type="button" class="btn btn-outline-info">Turkey</button>
+                <button type="button" class="btn btn-outline-info">Bahrain</button>
+                <button type="button" class="btn btn-outline-info">Cambodia</button>
+                <button type="button" class="btn btn-outline-info">China</button>
+                <button type="button" class="btn btn-outline-info">Cyprus</button>
+                <button type="button" class="btn btn-outline-info">Japan</button>
+                <button type="button" class="btn btn-outline-info">Kuwait</button>
+                <button type="button" class="btn btn-outline-info">Malaysia</button>
+                <button type="button" class="btn btn-outline-info">Nepal</button>
+                <button type="button" class="btn btn-outline-info">Pakistan</button>
+                <button type="button" class="btn btn-outline-info">Singapore</button>
+                <button type="button" class="btn btn-outline-info">Thailand</button>
+                <button type="button" class="btn btn-outline-info"><Link to="/turkey">Turkey</Link></button>
             </div>
         </div>
     )

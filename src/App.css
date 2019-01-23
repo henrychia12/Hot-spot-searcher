@@ -10,6 +10,14 @@
   
 }
 
+.App-logo-turkey {
+  animation: App-logo-spin infinite 0s linear;
+  height: 80vmin;
+  width: 212vmin;
+  opacity: 1.0;
+  
+}
+
 .navbar-brand img{
   height: 40px;
   width: auto;
@@ -21,8 +29,8 @@
 
 #content-over-image {
   position: absolute;
-  top: 220px;
-  left: 150px;
+  top: 150px;
+  left: 170px;
 }
 
 #content-over-image-asia {

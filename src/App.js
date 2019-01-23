@@ -15,11 +15,11 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Route exact path="/" component={Home} />
-          <Route path= '/home' component={Home} />
-          <Route path= '/register' component={Register} />
-          <Route path= '/login' component={LogIn} />
-          <Route path= '/asia' component={Asia} />
-          <Route path= '/turkey' component={Turkey} />
+          <Route path='/home' component={Home} />
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={LogIn} />
+          <Route path='/asia' component={Asia} />
+          <Route path='/turkey' component={Turkey} />
 
         </div>
       </BrowserRouter>
