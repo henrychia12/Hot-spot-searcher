@@ -1,14 +1,16 @@
 import React from 'react'
-import logo from '../cappadocia-img.jpg';
+import logo from '../blue-mosque-img.jpg';
 
 const Turkey = () => {
-    return(
+    return (
         <div className="container">
             <header className="App-header">
                 <div id="content-stuff">
-                    <img src={logo} className="App-logo" alt="logo" />
+                    <img src={logo} className="App-logo-turkey" alt="logo" />
                     <div id="content-over-image">
-                        <h1>Türkiye'ye hoşgeldiniz</h1>
+                        <h1>Türkiye'ye hoşgeldiniz!</h1>
+                        <br></br>
+                        <h1>Welcome to Turkey!</h1>
                     </div>
                 </div>
             </header>
