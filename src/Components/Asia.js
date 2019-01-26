@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../asia-image.jpg';
-import {Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Asia = () => {
     return (
