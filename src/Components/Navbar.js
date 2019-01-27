@@ -22,11 +22,17 @@ class Navbar extends Component {
         </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item"><Link to="/antartica">Antartica</Link></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/africa">Africa</Link></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/asia">Asia</Link></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/australia">Australia</Link></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/europe">Europe</Link></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/northamerica">North America</Link></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/southamerica">South America</Link></a>
 
               </div>
@@ -37,10 +43,12 @@ class Navbar extends Component {
         </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item"><Link to="/register">Register</Link></a>
-
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item"><Link to="/login">Log In</Link></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"><Link to="/deleteaccount">Delete Account</Link></a>
               </div>
+              
             </li>
 
           </ul>
