@@ -8,6 +8,7 @@ import LogIn from './Components/LogIn';
 import Asia from './Components/Asia';
 import Turkey from './Components/Turkey';
 import DeleteAccount from './Components/DeleteAccount';
+import { withAlert } from 'react-alert'
 
 class App extends Component {
   render() {
@@ -29,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAlert(App);

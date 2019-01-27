@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { withAlert } from 'react-alert';
 
 class Register extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            userName: null,
-            userFullName: null,
-            emailAddress: null,
-            password: null,
+            userName: "",
+            userFullName: "",
+            emailAddress: "",
+            password: "",
         }
     }
 
     createAccount = () => {
-        axios.post('http://localhost:8081/HotSpot-Project/api/userAccount/createAccount', {
-            userName: this.state.userName,
-            userFullName: this.state.userFullName,
-            emailAddress: this.state.emailAddress,
-            password: this.state.password
+        axios({
+            method: "post",
+            url: 'http://localhost:8081/HotSpot-Project/api/userAccount/createAccount',
+            data: {
+                userName: this.state.userName,
+                userFullName: this.state.userFullName,
+                emailAddress: this.state.emailAddress,
+                password: this.state.password
+            }
         })
         .then(function (response) {
             console.log(response.data);
@@ -39,16 +44,42 @@ class Register extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.postAccount();
+        this.createAccount();
+        console.log(this.state.userName);
     }
 
-    handleChange = event => {
+    handleUsername = event => {
         this.setState({
-            [event.target.id]: event.target.value
+            userName: event.target.value
         });
+        console.log(this.state.userName);
     }
   
+    handleEmail = event => {
+        this.setState({
+            emailAddress: event.target.value
+        });
+        console.log(this.state.emailAddress);
+    }
 
+    handleFullname = event => {
+        this.setState({
+            userFullName: event.target.value
+        });
+        console.log(this.state.userFullName);
+    }
+
+    handlePassword = event => {
+        this.setState({
+            password: event.target.value
+        });
+        console.log(this.state.password);
+    }
+
+    myClick = function () {
+        alert("Hello World!");
+    }
+    
     render() {
         return (
 
@@ -63,23 +94,24 @@ class Register extends Component {
                     </div>
                                 <fieldset onSubmit={this.handleSubmit}>
                                     <div class="form-group has-error">
-                                        <input class="form-control input-lg" onChange={this.handleChange} placeholder="Username" name="username" type="text" />
+                                        <input class="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
                                     </div>
                                     <div class="form-group has-error">
-                                        <input class="form-control input-lg" onChange={this.handleChange} placeholder="Full Name" name="fullname" type="text" />
+                                        <input class="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
                                     </div>
                                     <div class="form-group has-error">
-                                        <input class="form-control input-lg" onChange={this.handleChange} placeholder="E-mail Address" name="email" type="email" />
+                                        <input class="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
                                     </div>
                                     <div class="form-group has-success">
-                                        <input class="form-control input-lg" onChange={this.handleChange} placeholder="Password" name="password" type="password" />
+                                        <input id="password" class="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
                                     </div>
                                     <div class="checkbox">
                                         <label class="small">
                                             <input name="terms" type="checkbox" />I have read and agree to the <a href="#">terms & conditions</a>
                                         </label>
                                     </div>
-                                    <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" />
+                                    <input class="btn btn-lg btn-primary btn-block"  onClick={this.createAccount} value="Sign Me Up" type="submit"/>
+
                                 </fieldset>
                             </div>
                         </div>
