@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from '../city.jpg';
 
-const Home = () => {
+class Home extends Component {
+    render(){
     return (
         <div className="container">
             <header className="App-header">
@@ -15,6 +16,7 @@ const Home = () => {
 
         </div>
     )
+}
 }
 
 export default Home;

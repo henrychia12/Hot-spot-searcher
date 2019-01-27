@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from '../asia-image.jpg';
 import { Link, NavLink } from 'react-router-dom';
 
-const Asia = () => {
+class Asia extends Component {
+    render(){
     return (
         <div className="container">
             <header className="App-header">
@@ -30,6 +31,7 @@ const Asia = () => {
             </div>
         </div>
     )
+}
 }
 
 export default Asia;
