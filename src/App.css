@@ -7,7 +7,6 @@
   height: 80vmin;
   width: 212vmin;
   opacity: 0.9;
-  
 }
 
 .App-logo-turkey {
@@ -15,7 +14,10 @@
   height: 80vmin;
   width: 212vmin;
   opacity: 1.0;
-  
+}
+
+.register-background {
+  background-image: url("sky.jpg");
 }
 
 .navbar-brand img{

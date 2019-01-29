@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { withAlert } from 'react-alert';
 
 class Register extends Component {
 
@@ -17,7 +16,7 @@ class Register extends Component {
     createAccount = () => {
         axios({
             method: "post",
-            url: 'http://localhost:8081/HotSpot-Project/api/userAccount/createAccount',
+            url: 'http://localhost:9001/HotSpot-Project/api/userAccount/createAccount',
             data: {
                 userName: this.state.userName,
                 userFullName: this.state.userFullName,
@@ -25,15 +24,15 @@ class Register extends Component {
                 password: this.state.password
             }
         })
-        .then(function (response) {
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            }) 
+            this.props.history.push("/login")}
 
-    validateForm(){
+    validateForm() {
         return (
             this.state.userName.length > 0 &&
             this.state.userFullName.length > 0 &&
@@ -54,7 +53,7 @@ class Register extends Component {
         });
         console.log(this.state.userName);
     }
-  
+
     handleEmail = event => {
         this.setState({
             emailAddress: event.target.value
@@ -76,41 +75,37 @@ class Register extends Component {
         console.log(this.state.password);
     }
 
-    myClick = function () {
-        alert("Hello World!");
-    }
-    
     render() {
         return (
 
-            <div>
-                <div class="container-fluid bg-light py-3">
-                    <div class="row">
-                        <div class="col-md-6 mx-auto">
-                            <div class="card card-body">
-                                <h3 class="text-center mb-4">Sign-up</h3>
-                                <div class="alert alert-danger">
-                                    <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>Please enter all fields to register.
+            <div className="register-background">
+                <div className="container-fluid bg-light py-5">
+                    <div className="row">
+                        <div className="col-md-6 mx-auto">
+                            <div className="card card-body">
+                                <h3 className="text-center mb-4">Sign-up</h3>
+                                <div className="alert alert-danger">
+                                    <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to register.
                     </div>
                                 <fieldset onSubmit={this.handleSubmit}>
-                                    <div class="form-group has-error">
-                                        <input class="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
+                                    <div className="form-group has-error">
+                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
                                     </div>
-                                    <div class="form-group has-error">
-                                        <input class="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
+                                    <div className="form-group has-error">
+                                        <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
                                     </div>
-                                    <div class="form-group has-error">
-                                        <input class="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
+                                    <div className="form-group has-error">
+                                        <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
                                     </div>
-                                    <div class="form-group has-success">
-                                        <input id="password" class="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                    <div className="form-group has-success">
+                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
                                     </div>
-                                    <div class="checkbox">
-                                        <label class="small">
-                                            <input name="terms" type="checkbox" />I have read and agree to the <a href="#">terms & conditions</a>
+                                    <div className="checkbox">
+                                        <label className="small">
+                                            <input name="terms" type="checkbox" />I have read and agree to the <a>terms & conditions</a>
                                         </label>
                                     </div>
-                                    <input class="btn btn-lg btn-primary btn-block"  onClick={this.createAccount} value="Sign Me Up" type="submit"/>
+                                    <input className="btn btn-lg btn-primary btn-block" onClick={this.createAccount} value="Sign Me Up" type="submit" />
 
                                 </fieldset>
                             </div>
