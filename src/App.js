@@ -5,9 +5,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Register from './Components/Register';
 import LogIn from './Components/LogIn';
+import UpdateAccount from './Components/UpdateAccount';
+import DeleteAccount from './Components/DeleteAccount';
 import Asia from './Components/Asia';
 import Turkey from './Components/Turkey';
-import DeleteAccount from './Components/DeleteAccount';
 import { withAlert } from 'react-alert'
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/register' component={Register} />
           <Route path='/login' component={LogIn} />
           <Route path='/deleteaccount' component={DeleteAccount} />
+          <Route path='/updateaccount' component={UpdateAccount} />
           <Route path='/asia' component={Asia} />
           <Route path='/turkey' component={Turkey} />
 
