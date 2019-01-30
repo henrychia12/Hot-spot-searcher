@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 
 class LogIn extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class LogIn extends Component {
     }
 
     handleSubmit = () => {
-        Axios({
+        axios({
             method: "get",
             url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
         }).then(response => {
@@ -36,8 +36,8 @@ class LogIn extends Component {
             console.log(userAccounts);
             userAccounts.forEach((a) => {
                 console.log(this.state.username, a.userName);
-                console.log(this.state.password, a.password)
-;            });
+                console.log(this.state.password, a.password);            
+            });
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
                     console.log("user logged in");
