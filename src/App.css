@@ -17,6 +17,7 @@
 }
 
 .register-background {
+  animation: App-logo-spin infinite 0s linear;
   background-image: url("sky.jpg");
 }
 

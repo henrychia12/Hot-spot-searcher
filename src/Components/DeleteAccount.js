@@ -7,9 +7,8 @@ class DeleteAccount extends Component {
         super(props);
         this.state = {
             userName: null,
-            userFullName: null,
-            emailAddress: null,
-            password: null
+            password: null,
+            confirmPassword: null
         }
     }
 
@@ -17,21 +16,31 @@ class DeleteAccount extends Component {
         this.setState({
             userName: event.target.value
         });
+        console.log(this.state.userName)
     }
 
     handlePassword = event => {
         this.setState({
             password: event.target.value
         });
+        console.log(this.state.password)
     }
 
-    handleAccountToDelete = () => {
+    handleConfirmPassword = event => {
+        this.setState({
+            confirmPassword: event.target.value
+        });
+        console.log(this.state.confirmPassword)
+    }
+
+    handleAccountToDelete = (userID) => {
         axios({
             method: "delete",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/deleteAccount/",
+            url: "http://localhost:9001/HotSpot-Project/api/userAccount/deleteAccount/" + userID,
         }).then(response => {
             let deleteAccount = response.data;
             console.log(deleteAccount);
+            this.props.history.push("/");
         });
 
     }
@@ -44,7 +53,9 @@ class DeleteAccount extends Component {
             let userAccounts = response.data;
             console.log(userAccounts);
             for (let account = 0; account < userAccounts.length; account++) {
-                if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
+                if ((this.state.userName === userAccounts[account].userName) &&
+                 (this.state.password === userAccounts[account].password) ) {
+                    this.handleAccountToDelete(userAccounts[account].userID);
                 }
             }
         })
@@ -64,23 +75,20 @@ class DeleteAccount extends Component {
                 </div>
                             <fieldset onSubmit={this.handleSubmit}>
                                 <div className="form-group has-error">
-                                    <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
-                                </div>
-                                <div className="form-group has-error">
-                                    <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
-                                </div>
-                                <div className="form-group has-error">
-                                    <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
+                                    <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="username" type="text" />
                                 </div>
                                 <div className="form-group has-success">
                                     <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                </div>
+                                <div className="form-group has-error">
+                                    <input className="form-control input-lg" onChange={this.handlePassword} placeholder="Confirm Password" name="confirm password" type="password" />
                                 </div>
                                 <div className="checkbox">
                                     <label className="small">
                                         <input name="terms" type="checkbox" />I confirm I wish to <a>delete my account</a>
                                     </label>
                                 </div>
-                                <input className="btn btn-lg btn-primary btn-block" onClick={this.createAccount} value="Delete Account" type="submit" />
+                                <input className="btn btn-lg btn-primary btn-block" onClick={this.handleSubmit} value="Delete Account" type="submit" />
                             </fieldset>
                         </div>
                     </div>

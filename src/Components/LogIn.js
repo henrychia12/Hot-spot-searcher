@@ -47,47 +47,35 @@ class LogIn extends Component {
         })
     }
 
-
     render() {
         return (
             <div className="register-background">
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="col-md-6 mx-auto">
-                                    <div className="card rounded-0">
-                                        <div className="card-header">
-                                            <h3 className="mb-0">Login</h3>
-                                            <div className="alert alert-danger">
-                                                <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter your login details
-                                    </div>
-                                        </div>
-                                        <div className="card-body">
-                                            <form className="form" role="form" autoComplete="off" id="formLogin" noValidate="">
-                                                <div className="form-group">
-                                                    <input type="text" className="form-control form-control-lg rounded-0" onChange={this.handleUsername} placeholder="Username" name="uname1" id="uname1" required />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input type="password" className="form-control form-control-lg rounded-0" onChange={this.handlePassword} placeholder="Password" id="pwd1" required autoComplete="new-password" />
-                                                </div>
-                                                <div>
-                                                </div>
-                                                <button type="button" className="btn btn-lg btn-primary btn-block" onClick={this.handleSubmit} id="btnLogin">Login</button>
-                                            </form>
-                                        </div>
-                                    </div>
+            <div className="container-fluid bg-light py-5">
+                <div className="row">
+                    <div className="col-md-6 mx-auto">
+                        <div className="card card-body">
+                            <h3 className="text-center mb-4">Log In</h3>
+                            <div className="alert alert-danger">
+                                <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to register.
+                </div>
+                            <fieldset onSubmit={this.handleSubmit}>
+                                <div className="form-group has-error">
+                                    <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
                                 </div>
-                            </div>
+                                <div className="form-group has-success">
+                                    <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                </div>
+                                <input className="btn btn-lg btn-primary btn-block" onClick={this.handleSubmit} value="Log In" type="submit" />
+                            </fieldset>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
         )
     }
 }
-
 
 export default LogIn;
 
