@@ -8,7 +8,7 @@ class DeleteAccount extends Component {
         this.state = {
             userName: null,
             password: null,
-            confirmPassword: null
+            loggedInUser: JSON.parse(sessionStorage.getItem("Account")),
         }
     }
 
@@ -16,30 +16,27 @@ class DeleteAccount extends Component {
         this.setState({
             userName: event.target.value
         });
-        console.log(this.state.userName)
     }
 
     handlePassword = event => {
         this.setState({
             password: event.target.value
         });
-        console.log(this.state.password)
     }
 
-    handleConfirmPassword = event => {
-        this.setState({
-            confirmPassword: event.target.value
-        });
-        console.log(this.state.confirmPassword)
-    }
+    clearSession = () => {
+        sessionStorage.clear();
+        this.props.history.push("/");
+      }
 
-    handleAccountToDelete = (userID) => {
+    handleAccountToDelete = (id) => {
         axios({
             method: "delete",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/deleteAccount/" + userID,
+            url: "http://localhost:9001/HotSpot-Project/api/userAccount/deleteAccount/" + id,
         }).then(response => {
             let deleteAccount = response.data;
             console.log(deleteAccount);
+            this.clearSession();
             this.props.history.push("/");
         });
 
@@ -53,9 +50,9 @@ class DeleteAccount extends Component {
             let userAccounts = response.data;
             console.log(userAccounts);
             for (let account = 0; account < userAccounts.length; account++) {
-                if ((this.state.userName === userAccounts[account].userName) &&
-                 (this.state.password === userAccounts[account].password) ) {
-                    this.handleAccountToDelete(userAccounts[account].userID);
+                if ((this.state.userName === this.state.loggedInUser.userName) &&
+                 (this.state.password === this.state.loggedInUser.password)) {
+                    this.handleAccountToDelete(this.state.loggedInUser.userID);
                 }
             }
         })
@@ -79,9 +76,6 @@ class DeleteAccount extends Component {
                                 </div>
                                 <div className="form-group has-success">
                                     <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
-                                </div>
-                                <div className="form-group has-error">
-                                    <input className="form-control input-lg" onChange={this.handlePassword} placeholder="Confirm Password" name="confirm password" type="password" />
                                 </div>
                                 <div className="checkbox">
                                     <label className="small">
