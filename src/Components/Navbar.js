@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedInUser: JSON.parse(sessionStorage.getItem("userAccounts")),
+    }
+  }
+
   render() {
     return (
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-        <a className="navbar-brand"><img src={require("../logo.jpg")} /></a>
+        <a className="navbar-brand" href="/"><img src={require("../logo.jpg")} /></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +51,7 @@ class Navbar extends Component {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <p className="dropdown-item"><Link to="/register">Register</Link></p>
                 <div className="dropdown-divider"></div>
-                <p className="dropdown-item"><Link to="/login">Log In</Link></p>
+                <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ?  <Link to="/login">Log In</Link> : <Link to="/logout">Log Out</Link>}</p>
                 <div className="dropdown-divider"></div>
                 <p className="dropdown-item"><Link to="/updateaccount">Update Account</Link></p>
                 <div className="dropdown-divider"></div>

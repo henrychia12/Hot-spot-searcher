@@ -7,7 +7,7 @@ class LogIn extends Component {
 
         this.state = {
             username: null,
-            password: null
+            password: null,
         }
     }
 
@@ -40,6 +40,7 @@ class LogIn extends Component {
             });
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
+                    sessionStorage.setItem("Account", JSON.stringify(userAccounts[account]));
                     console.log("user logged in");
                     this.props.history.push("/");
                 }

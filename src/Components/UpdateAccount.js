@@ -20,7 +20,7 @@ class UpdateAccount extends Component {
         }).then(response => {
             let updateAccount = response.data;
             console.log(updateAccount);
-            this.props.history.push("/");
+            this.props.history.push("/login");
         });
 
     }

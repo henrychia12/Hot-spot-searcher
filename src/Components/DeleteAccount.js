@@ -8,7 +8,8 @@ class DeleteAccount extends Component {
         this.state = {
             userName: null,
             password: null,
-            confirmPassword: null
+            confirmPassword: null,
+            loggedInUser: JSON.parse(sessionStorage.getItem("userAccounts")),
         }
     }
 
@@ -54,7 +55,8 @@ class DeleteAccount extends Component {
             console.log(userAccounts);
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.userName === userAccounts[account].userName) &&
-                 (this.state.password === userAccounts[account].password) ) {
+                 (this.state.password === userAccounts[account].password) && 
+                 (this.state.confirmPassword === userAccounts[account].password) ) {
                     this.handleAccountToDelete(userAccounts[account].userID);
                 }
             }
