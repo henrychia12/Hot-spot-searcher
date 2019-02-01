@@ -11,10 +11,6 @@ class LogIn extends Component {
         }
     }
 
-    validateForm() {
-        return this.state.username.length > 0 && this.state.password.length > 0;
-    }
-
     handleUsername = event => {
         this.setState({
             username: event.target.value
@@ -33,11 +29,6 @@ class LogIn extends Component {
             url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
         }).then(response => {
             let userAccounts = response.data;
-            console.log(userAccounts);
-            userAccounts.forEach((a) => {
-                console.log(this.state.username, a.userName);
-                console.log(this.state.password, a.password);            
-            });
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
                     sessionStorage.setItem("Account", JSON.stringify(userAccounts[account]));

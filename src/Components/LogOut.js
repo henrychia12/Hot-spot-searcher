@@ -5,7 +5,7 @@ class LogOut extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedInUser: JSON.parse(sessionStorage.getItem("userAccounts")),
+            loggedInUser: JSON.parse(sessionStorage.getItem("Account")),
         }
     }
 
@@ -23,25 +23,19 @@ class LogOut extends Component {
                     <div className="card card-body">
                         <h3 className="text-center mb-4">Account Details</h3>
                         <div className="alert alert-danger">
-                            <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to update Account.
+                            <a className="close font-weight-light" data-dismiss="alert">×</a>Account details below:
             </div>
                         <fieldset onSubmit={this.handleSubmit}>
                             <div className="form-group has-error">
-                                <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
+                            <h2>UserName:</h2>
                             </div>
-                            <div className="form-group has-error">
-                                <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
+                            <div className="form-group has-error"><p>{this.state.loggedInUser.userName}</p>
+                            <h2>Full Name:</h2>
                             </div>
-                            <div className="form-group has-error">
-                                <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
+                            <div className="form-group has-error"><p>{this.state.loggedInUser.userFullName}</p>
+                            <h2>Email Address:</h2>
                             </div>
-                            <div className="form-group has-success">
-                                <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
-                            </div>
-                            <div className="checkbox">
-                                <label className="small">
-                                    <input name="terms" type="checkbox" />I have read and agree to <a>change my account details</a>
-                                </label>
+                            <div className="form-group has-error"><p>{this.state.loggedInUser.emailAddress}</p>
                             </div>
                             <input className="btn btn-lg btn-primary btn-block" onClick={this.clearSession} value="Log Out" type="submit" />
 

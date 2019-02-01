@@ -10,36 +10,54 @@ class UpdateAccount extends Component {
             userFullName: null,
             emailAddress: null,
             password: null,
+            loggedInUser: JSON.parse(sessionStorage.getItem("Account")),
         }
     }
 
-    handleAccountToUpdate = (userID) => {
-        axios({
-            method: "delete",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/updateAccount/" + userID,
-        }).then(response => {
-            let updateAccount = response.data;
-            console.log(updateAccount);
-            this.props.history.push("/login");
+    handleUserName = event => {
+        this.setState({
+            userName: event.target.value
         });
-
     }
 
-    handleSubmit = () => {
+    handleFullName = event => {
+        this.setState({
+            userFullName: event.target.value
+        });
+    }
+
+    handleEmailAddress = event => {
+        this.setState({
+            emailAddress: event.target.value
+        });
+    }
+
+    handlePassword = event => {
+        this.setState({
+            password: event.target.value
+        });
+    }
+
+
+    updateAccount = () => {
         axios({
-            method: "get",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
-        }).then(response => {
-            let userAccounts = response.data;
-            console.log(userAccounts);
-            for (let account = 0; account < userAccounts.length; account++) {
-                if ((this.state.userName === userAccounts[account].userName) &&
-                 (this.state.password === userAccounts[account].password) ) {
-                    this.handleAccountToUpdate(userAccounts[account].userID);
-                }
+            method: "post",
+            url: 'http://localhost:9001/HotSpot-Project/api/userAccount/updateAccount/' + this.state.loggedInUser.userID,
+            data: {
+                userName: this.state.userName,
+                userFullName: this.state.userFullName,
+                emailAddress: this.state.emailAddress,
+                password: this.state.password
             }
         })
-    }
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            }) 
+            this.props.history.push("/")
+        }
 
     render() {
         return (
@@ -54,13 +72,13 @@ class UpdateAccount extends Component {
                     </div>
                                 <fieldset onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="username" type="text" />
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleFullName} placeholder="Full Name" name="fullname" type="text" />
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
+                                        <input className="form-control input-lg" onChange={this.handleEmailAddress} placeholder="E-mail Address" name="email" type="email" />
                                     </div>
                                     <div className="form-group has-success">
                                         <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
@@ -70,7 +88,7 @@ class UpdateAccount extends Component {
                                             <input name="terms" type="checkbox" />I have read and agree to <a>change my account details</a>
                                         </label>
                                     </div>
-                                    <input className="btn btn-lg btn-primary btn-block" onClick={this.createAccount} value="Sign Me Up" type="submit" />
+                                    <input className="btn btn-lg btn-primary btn-block" onClick={this.updateAccount} value="Update my details" type="submit" />
 
                                 </fieldset>
                             </div>

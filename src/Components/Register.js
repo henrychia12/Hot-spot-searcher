@@ -30,16 +30,8 @@ class Register extends Component {
             .catch(function (error) {
                 console.log(error);
             }) 
-            this.props.history.push("/login")}
-
-    validateForm() {
-        return (
-            this.state.userName.length > 0 &&
-            this.state.userFullName.length > 0 &&
-            this.state.emailAddress.length > 0 &&
-            this.state.password.length > 0
-        )
-    }
+            this.props.history.push("/login")
+        }
 
     handleSubmit = event => {
         event.preventDefault();
