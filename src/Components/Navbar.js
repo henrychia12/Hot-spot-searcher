@@ -53,9 +53,9 @@ class Navbar extends Component {
                 <div className="dropdown-divider"></div>
                 <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ?  <Link to="/login">Log In</Link> : <Link to="/logout">Log Out</Link>}</p>
                 <div className="dropdown-divider"></div>
-    <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ?<Link to="/RestrictedUpdatePage">(No access)Update Account</Link> : <Link to="/updateaccount">Update Account</Link>}</p>
+    <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/updateaccount">Update Account</Link>}</p>
                 <div className="dropdown-divider"></div>
-    <p className="dropdown-item">{JSON.parse(sessionStorage.getItem("Account")) ===  null   ? <Link to="/RestrictedDeletePage">(No access)Delete Account</Link> : <Link to="/deleteaccount">Delete Account</Link>}</p>
+    <p className="dropdown-item">{JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/deleteaccount">Delete Account</Link>}</p>
               </div>
 
             </li>

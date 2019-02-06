@@ -79,27 +79,27 @@ class Register extends Component {
                                 <div className="alert alert-danger">
                                     <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to register.
                     </div>
-                                <fieldset onSubmit={this.handleSubmit}>
+                                <form onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address" name="email" type="email" />
+                                        <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address (gmail.com only)" name="email" type="email" pattern=".+@gmail.com" required/>
                                     </div>
                                     <div className="form-group has-success">
-                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" minLength="8" required/>
                                     </div>
                                     <div className="checkbox">
                                         <label className="small">
-                                            <input name="terms" type="checkbox" />I have read and agree to the <a>terms & conditions</a>
+                                            <input name="terms" type="checkbox" required/>I have read and agree to the <a>terms & conditions</a>
                                         </label>
                                     </div>
-                                    <input className="btn btn-lg btn-primary btn-block" onClick={this.createAccount} value="Sign Me Up" type="submit" />
+                                    <input className="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" />
 
-                                </fieldset>
+                                </form>
                             </div>
                         </div>
                     </div>
