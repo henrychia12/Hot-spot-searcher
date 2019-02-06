@@ -53,13 +53,13 @@ class Navbar extends Component {
                 <div className="dropdown-divider"></div>
                 <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ?  <Link to="/login">Log In</Link> : <Link to="/logout">Log Out</Link>}</p>
                 <div className="dropdown-divider"></div>
-    <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/updateaccount">Update Account</Link>}</p>
+                <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ?null : <Link to="/updateaccount">Update Account</Link>}</p>
                 <div className="dropdown-divider"></div>
-    <p className="dropdown-item">{JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/deleteaccount">Delete Account</Link>}</p>
+                <p className="dropdown-item">{JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/deleteaccount">Delete Account</Link>}</p>
+
               </div>
 
             </li>
-
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
