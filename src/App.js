@@ -27,9 +27,7 @@ class App extends Component {
           <Route path='/login' component={LogIn} />
           <Route path='/logout' component={LogOut} />
           <Route path='/deleteaccount' component={DeleteAccount} />
-          <Route path='/restricteddeletepage' component={RestrictedDeletePage} />
           <Route path='/updateaccount' component={UpdateAccount} />
-          <Route path='/restrictedupdatepage' component={RestrictedUpdatePage} />
           <Route path='/asia' component={Asia} />
           <Route path='/turkey' component={Turkey} />
 
