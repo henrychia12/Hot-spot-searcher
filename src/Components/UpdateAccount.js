@@ -37,7 +37,28 @@ class UpdateAccount extends Component {
             password: event.target.value
         });
     }
-    
+
+    updateAccount = () => {
+        axios({
+            method: "post",
+            url: 'http://localhost:9001/HotSpot-Project/api/userAccount/updateAccount/' + this.state.loggedInUser.userID,
+            data: {
+                userName: this.state.userName,
+                userFullName: this.state.userFullName,
+                emailAddress: this.state.emailAddress,
+                password: this.state.password
+            }
+        })
+            .then(function (response) {
+                console.log(response.data);
+                alert("Account details have been successfully updated.");
+            })
+            .catch(function (error) {
+                console.log(error);
+            }) 
+            this.props.history.push("/")
+        }
+
     render() {
         return (
             <div className="register-background">
