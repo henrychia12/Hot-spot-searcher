@@ -24,6 +24,7 @@ class LogIn extends Component {
     }
 
     handleSubmit = () => {
+        let loggedIn = false
         axios({
             method: "get",
             url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
@@ -33,12 +34,16 @@ class LogIn extends Component {
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
                     sessionStorage.setItem("Account", JSON.stringify(userAccounts[account]));
+                    loggedIn = true;
                     console.log("user logged in");
+                    console.log(userAccounts);
                     this.props.history.push("/");
-                }         
+                }     
             }
-            window.alert("Details entered are invalid. Please try again or register a new account.");
-        });
+            if(loggedIn === false){
+                alert("Details entered are invalid. Please try again or register a new account.");
+            }
+        })
     }
 
     render() {

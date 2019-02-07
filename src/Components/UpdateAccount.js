@@ -37,28 +37,7 @@ class UpdateAccount extends Component {
             password: event.target.value
         });
     }
-
-
-    updateAccount = () => {
-        axios({
-            method: "post",
-            url: 'http://localhost:9001/HotSpot-Project/api/userAccount/updateAccount/' + this.state.loggedInUser.userID,
-            data: {
-                userName: this.state.userName,
-                userFullName: this.state.userFullName,
-                emailAddress: this.state.emailAddress,
-                password: this.state.password
-            }
-        })
-            .then(function (response) {
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            }) 
-            this.props.history.push("/")
-        }
-
+    
     render() {
         return (
             <div className="register-background">
@@ -70,27 +49,27 @@ class UpdateAccount extends Component {
                                 <div className="alert alert-danger">
                                     <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to update Account.
                     </div>
-                                <fieldset onSubmit={this.handleSubmit}>
+                                <form onSubmit={this.updateAccount}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="username" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="username" type="text" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleFullName} placeholder="Full Name" name="fullname" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleFullName} placeholder="Full Name" name="fullname" type="text" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleEmailAddress} placeholder="E-mail Address" name="email" type="email" />
+                                        <input className="form-control input-lg" onChange={this.handleEmailAddress} placeholder="E-mail Address" name="email" type="email" pattern=".+@gmail.com" required/>
                                     </div>
                                     <div className="form-group has-success">
-                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" minLength="8" required/>
                                     </div>
                                     <div className="checkbox">
                                         <label className="small">
-                                            <input name="terms" type="checkbox" />I have read and agree to <a>change my account details</a>
+                                            <input name="terms" type="checkbox" required/>I have read and agree to <a>change my account details</a>
                                         </label>
                                     </div>
-                                    <input className="btn btn-lg btn-primary btn-block" onClick={this.updateAccount} value="Update my details" type="submit" />
+                                    <input className="btn btn-lg btn-primary btn-block" value="Update my details" type="submit" />
 
-                                </fieldset>
+                                </form>
                             </div>
                         </div>
                     </div>
