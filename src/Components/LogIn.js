@@ -35,15 +35,14 @@ class LogIn extends Component {
                 if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
                     sessionStorage.setItem("Account", JSON.stringify(userAccounts[account]));
                     loggedIn = true;
-                    console.log("user logged in");
-                    console.log(userAccounts);
+                    alert("Account successfully logged in.");
                     this.props.history.push("/");
                 }     
             }
             if(loggedIn === false){
                 alert("Details entered are invalid. Please try again or register a new account.");
             }
-        })
+        });
     }
 
     render() {
