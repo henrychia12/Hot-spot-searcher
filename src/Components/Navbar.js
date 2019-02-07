@@ -42,23 +42,29 @@ class Navbar extends Component {
                 <p className="dropdown-item"><Link to="/northamerica">North America</Link></p>
                 <div className="dropdown-divider"></div>
                 <p className="dropdown-item"><Link to="/southamerica">South America</Link></p>
-
               </div>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Members</a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <p className="dropdown-item"><Link to="/register">Register</Link></p>
-                <div className="dropdown-divider"></div>
-                <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ?  <Link to="/login">Log In</Link> : <Link to="/logout">Log Out</Link>}</p>
-                <div className="dropdown-divider"></div>
-                <p className="dropdown-item"> {JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/updateaccount">Update Account</Link>}</p>
-                <div className="dropdown-divider"></div>
-                <p className="dropdown-item">{JSON.parse(sessionStorage.getItem("Account")) ===  null   ? null : <Link to="/deleteaccount">Delete Account</Link>}</p>
-
+                {JSON.parse(sessionStorage.getItem("Account")) ===  null ? (
+                  <div>
+                  <div className="dropdown-divider"></div>
+                  <p className="dropdown-item"><Link to="/login">Log In</Link></p>
+                  </div>
+                ) : (
+                  <div> 
+                  <div className="dropdown-divider"></div>
+                  <p className="dropdown-item"> <Link to="/logout">Log Out</Link>}</p>
+                  <div className="dropdown-divider"></div>
+                  <p className="dropdown-item"><Link to="/updateaccount">Update Account</Link>}</p>
+                  <div className="dropdown-divider"></div>
+                  <p className="dropdown-item"><Link to="/deleteaccount">Delete Account</Link>}</p>
+                  </div>  
+                )}  
               </div>
-
             </li>
 
           </ul>
