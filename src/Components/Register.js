@@ -29,7 +29,8 @@ class Register extends Component {
             })
             .catch(function (error) {
                 console.log(error);
-            }) 
+            });
+            alert("Account successfully created."); 
             this.props.history.push("/login")
         }
 

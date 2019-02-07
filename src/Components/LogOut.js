@@ -11,6 +11,7 @@ class LogOut extends Component {
 
     clearSession = () => {
         sessionStorage.clear();
+        alert("Account has successfully logged out.");
         this.props.history.push("/");
       }
 

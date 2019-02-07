@@ -35,8 +35,8 @@ class DeleteAccount extends Component {
             url: "http://localhost:9001/HotSpot-Project/api/userAccount/deleteAccount/" + id,
         }).then(response => {
             let deleteAccount = response.data;
-            console.log(deleteAccount);
             this.clearSession();
+            alert("Account has successfully been deleted.");
             this.props.history.push("/");
         });
 
