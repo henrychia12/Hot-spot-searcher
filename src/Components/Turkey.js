@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../blue-mosque-img.jpg';
 
 class Turkey extends Component {
+
     render() {
         return (
             <div className="container">
