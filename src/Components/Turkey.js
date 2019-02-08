@@ -4,26 +4,31 @@ import axios from 'axios';
 
 class Turkey extends Component {
 
-    handleSubmit = () => {
-        let loggedIn = false
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage : "Turkey",
+            attractions: []
+        }
+    }
+
+    componentDidMount () {
+        let arr = []
         axios({
             method: "get",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
+            url: "http://localhost:9001/HotSpot-Project/api/location/getAllLocations",
         })
         .then(response => {
-            let userAccounts = response.data;
-            for (let account = 0; account < userAccounts.length; account++) {
-                if ((this.state.username === userAccounts[account].userName) && (this.state.password === userAccounts[account].password)) {
-                    sessionStorage.setItem("Account", JSON.stringify(userAccounts[account]));
-                    loggedIn = true;
-                    console.log("user logged in");
-                    console.log(userAccounts);
-                    this.props.history.push("/");
+            let locations = response.data;
+            for (let location = 0; location < locations.length; location++) {
+                if (this.state.currentPage === locations[location].countryName) {
+                    arr.push(response.data[location])
+                   this.setState({
+                       attractions: arr
+                   })
                 }     
             }
-            if(loggedIn === false){
-                alert("Details entered are invalid. Please try again or register a new account.");
-            }
+            console.log(this.state.attraction);
         });
     }
 
@@ -39,7 +44,15 @@ class Turkey extends Component {
                             <h1>Welcome to Turkey!</h1>
                         </div>
                     </div>
-                </header>
+                    </header>
+                    {(this.state.attractions.map((attraction) =>            
+                    <div key={attraction.locationID}>
+                    <br></br>
+                        <br/> <h1>{attraction.locationName}</h1> 
+                        <img src={require("../" + attraction.image)} className="attraction-image"/> <br></br>
+                        <br/> {attraction.description}
+                    </div>))}
+
             </div>
         )
     }

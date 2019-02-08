@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loggedInUser: JSON.parse(sessionStorage.getItem("Account")),
-    }
-  }
-
   render() {
     return (
 
@@ -57,11 +49,11 @@ class Navbar extends Component {
                 ) : (
                   <div> 
                   <div className="dropdown-divider"></div>
-                  <p className="dropdown-item"> <Link to="/logout">Log Out</Link>}</p>
+                  <p className="dropdown-item"> <Link to="/logout">Log Out</Link></p>
                   <div className="dropdown-divider"></div>
-                  <p className="dropdown-item"><Link to="/updateaccount">Update Account</Link>}</p>
+                  <p className="dropdown-item"><Link to="/updateaccount">Update Account</Link></p>
                   <div className="dropdown-divider"></div>
-                  <p className="dropdown-item"><Link to="/deleteaccount">Delete Account</Link>}</p>
+                  <p className="dropdown-item"><Link to="/deleteaccount">Delete Account</Link></p>
                   </div>  
                 )}  
               </div>

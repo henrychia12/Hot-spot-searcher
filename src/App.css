@@ -16,6 +16,13 @@
   opacity: 1.0;
 }
 
+.attraction-image {
+  animation: App-logo-spin infinite 0s linear;
+  height: 75vmin;
+  width: 100vmin;
+  opacity: 1.0;
+}
+
 .register-background {
   animation: App-logo-spin infinite 0s linear;
   background-image: url("sky.jpg");

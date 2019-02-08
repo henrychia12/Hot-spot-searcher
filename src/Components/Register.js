@@ -24,13 +24,14 @@ class Register extends Component {
                 password: this.state.password
             }
         })
-            .then(function (response) {
-                console.log(response.data);
+            .then(response => {
+                let bannedUser = null;
+                bannedUser = response.data.message
+                alert(bannedUser)
             })
             .catch(function (error) {
                 console.log(error);
-            });
-            alert("Account successfully created."); 
+            }); 
             this.props.history.push("/login")
         }
 
@@ -82,10 +83,10 @@ class Register extends Component {
                     </div>
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" required/>
+                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" minLength="2" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" required/>
+                                        <input className="form-control input-lg" onChange={this.handleFullname} placeholder="Full Name" name="fullname" type="text" minLength="4" required/>
                                     </div>
                                     <div className="form-group has-error">
                                         <input className="form-control input-lg" onChange={this.handleEmail} placeholder="E-mail Address (gmail.com only)" name="email" type="email" pattern=".+@gmail.com" required/>
