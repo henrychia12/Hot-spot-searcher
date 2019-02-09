@@ -20,7 +20,7 @@ class Asia extends Component {
                 <button type="button" className="btn btn-outline-info">Cambodia</button>
                 <button type="button" className="btn btn-outline-info">China</button>
                 <button type="button" className="btn btn-outline-info">Cyprus</button>
-                <button type="button" className="btn btn-outline-info">Japan</button>
+                <button type="button" className="btn btn-outline-info"><Link to="/japan">Japan</Link></button>
                 <button type="button" className="btn btn-outline-info">Kuwait</button>
                 <button type="button" className="btn btn-outline-info">Malaysia</button>
                 <button type="button" className="btn btn-outline-info">Nepal</button>

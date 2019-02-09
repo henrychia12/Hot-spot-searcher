@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../turkey-hi.jpg';
+import logo from '../japan-img.jpg';
 import axios from 'axios';
 
-class Turkey extends Component {
+class Japan extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            currentPage : "Turkey",
+            currentPage : "Japan",
             attractions: []
         }
     }
@@ -39,9 +39,9 @@ class Turkey extends Component {
                     <div id="content-stuff">
                         <img src={logo} className="App-logo-attraction" alt="logo" />
                         <div id="content-over-image">
-                            <h1>Türkiye'ye hoşgeldiniz!</h1>
+                            <h1>日本へようこそ!</h1>
                             <br></br>
-                            <h1>Welcome to Turkey!</h1>
+                            <h1>Welcome to Japan!</h1>
                         </div>
                     </div>
                     </header>
@@ -58,4 +58,4 @@ class Turkey extends Component {
     }
 }
 
-export default Turkey;
+export default Japan;
