@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import * as Constants from "./Constants.js";
 
 class LogIn extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class LogIn extends Component {
         let loggedIn = false
         axios({
             method: "get",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
+            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/getAllAccounts",
         })
             .then(response => {
                 let userAccounts = response.data;
