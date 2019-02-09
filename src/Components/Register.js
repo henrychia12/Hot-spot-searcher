@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import * as Constants from "./Constants.js";
 
 class Register extends Component {
 
@@ -16,7 +17,7 @@ class Register extends Component {
     createAccount = () => {
         axios({
             method: "post",
-            url: 'http://localhost:9001/HotSpot-Project/api/userAccount/createAccount',
+            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/createAccount",
             data: {
                 userName: this.state.userName,
                 userFullName: this.state.userFullName,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import * as Constants from "./Constants.js";
 
 class DeleteAccount extends Component {
 
@@ -32,7 +33,7 @@ class DeleteAccount extends Component {
     handleAccountToDelete = (id) => {
         axios({
             method: "delete",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/deleteAccount/" + id,
+            url:  Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/deleteAccount/" + id,
         }).then(response => {
             let deleteAccount = response.data;
             this.clearSession();
@@ -45,7 +46,7 @@ class DeleteAccount extends Component {
     handleSubmit = () => {
         axios({
             method: "get",
-            url: "http://localhost:9001/HotSpot-Project/api/userAccount/getAllAccounts",
+            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/getAllAccounts",
         }).then(response => {
             let userAccounts = response.data;
             console.log(userAccounts);

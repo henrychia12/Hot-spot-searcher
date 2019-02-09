@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../japan-img.jpg';
 import axios from 'axios';
+import * as Constants from "./Constants.js";
 
 class Japan extends Component {
 
@@ -16,7 +17,7 @@ class Japan extends Component {
         let arr = []
         axios({
             method: "get",
-            url: "http://localhost:9001/HotSpot-Project/api/location/getAllLocations",
+            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/location/getAllLocations",
         })
         .then(response => {
             let locations = response.data;
