@@ -10,6 +10,7 @@ import UpdateAccount from './Components/UpdateAccount';
 import DeleteAccount from './Components/DeleteAccount';
 import Asia from './Components/Asia';
 import Turkey from './Components/Turkey';
+import Japan from './Components/Japan';
 import { withAlert } from 'react-alert'
 
 
@@ -28,6 +29,7 @@ class App extends Component {
           <Route path='/updateaccount' component={UpdateAccount} />
           <Route path='/asia' component={Asia} />
           <Route path='/turkey' component={Turkey} />
+          <Route path='/japan' component={Japan} />
 
         </div>
       </BrowserRouter>
