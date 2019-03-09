@@ -50,7 +50,7 @@ class Japan extends Component {
                     <div key={attraction.locationID}>
                     <br></br>
                         <br/> <h1>{attraction.locationName}</h1> 
-                        <img src={require("../JapanImage/" + attraction.image)} className="attraction-image"/> <br></br>
+                        <img src={require("../JapanImage/" + attraction.image)} alt="Japan Welcome"/> <br></br>
                         <br/> {attraction.description}
                     </div>))}
 

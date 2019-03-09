@@ -38,7 +38,7 @@ class Turkey extends Component {
             <div className="container">
                 <header className="App-header">
                     <div id="content-stuff">
-                        <img src={logo} className="App-logo-attraction" alt="logo" />
+                        <img src={logo} className="App-logo-attraction" alt="Turkey Welcome" />
                         <div id="content-over-image">
                             <h1>Türkiye'ye hoşgeldiniz!</h1>
                             <br></br>
@@ -50,7 +50,7 @@ class Turkey extends Component {
                     <div key={attraction.locationID}>
                     <br></br>
                         <br/> <h1>{attraction.locationName}</h1> 
-                        <img src={require("../TurkeyImage/" + attraction.image)} className="attraction-image"/> <br></br>
+                        <img src={require("../TurkeyImage/" + attraction.image)} alt="Turkey attraction"/> <br></br>
                         <br/> {attraction.description}
                     </div>))}
 

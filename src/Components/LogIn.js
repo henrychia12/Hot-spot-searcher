@@ -55,7 +55,7 @@ class LogIn extends Component {
                             <div className="card card-body">
                                 <h3 className="text-center mb-4">Log In</h3>
                                 <div className="alert alert-danger">
-                                    <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to register.
+                                    <a className="close font-weight-light" data-dismiss="alert" href="/">×</a>Please enter all fields to register.
                 </div>
                                 <fieldset onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">

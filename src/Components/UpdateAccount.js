@@ -13,30 +13,13 @@ class UpdateAccount extends Component {
             password: null,
             loggedInUser: JSON.parse(sessionStorage.getItem("Account")),
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleUserName = event => {
+    handleChange = (e) => {
         this.setState({
-            userName: event.target.value
-        });
-    }
-
-    handleFullName = event => {
-        this.setState({
-            userFullName: event.target.value
-        });
-    }
-
-    handleEmailAddress = event => {
-        this.setState({
-            emailAddress: event.target.value
-        });
-    }
-
-    handlePassword = event => {
-        this.setState({
-            password: event.target.value
-        });
+            [e.target.name]: e.target.value
+            });
     }
 
     updateAccount = () => {
@@ -51,7 +34,6 @@ class UpdateAccount extends Component {
             }
         })
             .then(function (response) {
-                console.log(response.data);
                 alert("Account details have been successfully updated.");
             })
             .catch(function (error) {
@@ -69,24 +51,24 @@ class UpdateAccount extends Component {
                             <div className="card card-body">
                                 <h3 className="text-center mb-4">Update Account Details</h3>
                                 <div className="alert alert-danger">
-                                    <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to update Account.
+                                    <a className="close font-weight-light" data-dismiss="alert" href="/">×</a>Please enter all fields to update Account.
                     </div>
                                 <form onSubmit={this.updateAccount}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="username" type="text" required/>
+                                        <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="userName" type="text" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleFullName} placeholder="Full Name" name="fullname" type="text" required/>
+                                        <input className="form-control input-lg" onChange={this.handleFullName} placeholder="Full Name" name="fullName" type="text" required/>
                                     </div>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleEmailAddress} placeholder="E-mail Address" name="email" type="email" pattern=".+@gmail.com" required/>
+                                        <input className="form-control input-lg" onChange={this.handleEmailAddress} placeholder="E-mail Address" name="emailAddress" type="email" pattern=".+@gmail.com" required/>
                                     </div>
                                     <div className="form-group has-success">
                                         <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" minLength="8" required/>
                                     </div>
                                     <div className="checkbox">
                                         <label className="small">
-                                            <input name="terms" type="checkbox" required/>I have read and agree to <a>change my account details</a>
+                                            <input name="terms" type="checkbox" required/> I have read and agree to change my account details
                                         </label>
                                     </div>
                                     <input className="btn btn-lg btn-primary btn-block" value="Update my details" type="submit" />
