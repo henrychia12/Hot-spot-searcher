@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as Constants from "./Constants.js";
+import {hotspot_ip} from "./Constants.js";
 
 class UpdateAccount extends Component {
 
@@ -42,7 +42,7 @@ class UpdateAccount extends Component {
     updateAccount = () => {
         axios({
             method: "post",
-            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/updateAccount/" + this.state.loggedInUser.userID,
+            url: hotspot_ip + ":8080/HotSpot-Project/api/userAccount/updateAccount/" + this.state.loggedInUser.userID,
             data: {
                 userName: this.state.userName,
                 userFullName: this.state.userFullName,

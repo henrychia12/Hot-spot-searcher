@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from '../turkey-hi.jpg';
+import logo from '../GeneralImage/turkey-hi.jpg';
 import axios from 'axios';
-import * as Constants from "./Constants.js";
+import {hotspot_ip} from "./Constants.js";
 
 class Turkey extends Component {
 
@@ -17,7 +17,7 @@ class Turkey extends Component {
         let arr = []
         axios({
             method: "get",
-            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/location/getAllLocations",
+            url: hotspot_ip + ":8080/HotSpot-Project/api/location/getAllLocations",
         })
         .then(response => {
             let locations = response.data;
@@ -50,7 +50,7 @@ class Turkey extends Component {
                     <div key={attraction.locationID}>
                     <br></br>
                         <br/> <h1>{attraction.locationName}</h1> 
-                        <img src={require("../" + attraction.image)} className="attraction-image"/> <br></br>
+                        <img src={require("../TurkeyImage/" + attraction.image)} className="attraction-image"/> <br></br>
                         <br/> {attraction.description}
                     </div>))}
 

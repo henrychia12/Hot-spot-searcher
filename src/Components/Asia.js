@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../asia-image.jpg';
+import logo from '../GeneralImage/asia-image.jpg';
 import { Link } from 'react-router-dom';
 
 class Asia extends Component {
