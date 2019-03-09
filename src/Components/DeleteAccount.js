@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as Constants from "./Constants.js";
+import {hotspot_ip} from "./Constants.js";
 
 class DeleteAccount extends Component {
 
@@ -11,18 +11,13 @@ class DeleteAccount extends Component {
             password: null,
             loggedInUser: JSON.parse(sessionStorage.getItem("Account")),
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleUserName = event => {
+    handleChange = (e) => {
         this.setState({
-            userName: event.target.value
-        });
-    }
-
-    handlePassword = event => {
-        this.setState({
-            password: event.target.value
-        });
+            [e.target.name]: e.target.value
+            });
     }
 
     clearSession = () => {
@@ -33,11 +28,10 @@ class DeleteAccount extends Component {
     handleAccountToDelete = (id) => {
         axios({
             method: "delete",
-            url:  Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/deleteAccount/" + id,
+            url:  hotspot_ip + ":8080/HotSpot-Project/api/userAccount/deleteAccount/" + id,
         }).then(response => {
-            let deleteAccount = response.data;
             this.clearSession();
-            alert("Account has successfully been deleted.");
+            alert("Account has been successfully deleted.");
             this.props.history.push("/");
         });
 
@@ -46,10 +40,11 @@ class DeleteAccount extends Component {
     handleSubmit = () => {
         axios({
             method: "get",
-            url: Constants.hotspot_ip + ":8080/HotSpot-Project/api/userAccount/getAllAccounts",
+            url: hotspot_ip + ":8080/HotSpot-Project/api/userAccount/getAllAccounts",
         }).then(response => {
             let userAccounts = response.data;
             console.log(userAccounts);
+            console.log(this.state.userName + this.state.password);
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.userName === this.state.loggedInUser.userName) &&
                     (this.state.password === this.state.loggedInUser.password)) {
@@ -73,10 +68,10 @@ class DeleteAccount extends Component {
                 </div>
                                 <fieldset onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUserName} placeholder="Username" name="username" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleChange} placeholder="Username" name="userName" type="text" />
                                     </div>
                                     <div className="form-group has-success">
-                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                        <input id="password" className="form-control input-lg" onChange={this.handleChange} placeholder="password" name="password" type="password" />
                                     </div>
                                     <div className="checkbox">
                                         <label className="small">
