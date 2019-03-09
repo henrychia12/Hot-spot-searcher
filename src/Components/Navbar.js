@@ -7,7 +7,7 @@ class Navbar extends Component {
     return (
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-        <a className="navbar-brand" href="/"><img src={require("../logo.jpg")} /></a>
+        <a className="navbar-brand" href="/"><img src={require("../logo.jpg")} alt="Company logo"/></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -18,7 +18,7 @@ class Navbar extends Component {
               <p className="nav-link"> <Link to="/home">Home</Link><span className="sr-only">(current)</span></p>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a className="nav-link dropdown-toggle" id="navbarDropdown" href="_blank" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Location</a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <p className="dropdown-item"><Link to="/antartica">Antartica</Link></p>
@@ -37,7 +37,7 @@ class Navbar extends Component {
               </div>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a className="nav-link dropdown-toggle" id="navbarDropdown" href="_blank" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Members</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <p className="dropdown-item"><Link to="/register">Register</Link></p>

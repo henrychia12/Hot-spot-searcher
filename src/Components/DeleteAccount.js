@@ -43,8 +43,6 @@ class DeleteAccount extends Component {
             url: hotspot_ip + ":8080/HotSpot-Project/api/userAccount/getAllAccounts",
         }).then(response => {
             let userAccounts = response.data;
-            console.log(userAccounts);
-            console.log(this.state.userName + this.state.password);
             for (let account = 0; account < userAccounts.length; account++) {
                 if ((this.state.userName === this.state.loggedInUser.userName) &&
                     (this.state.password === this.state.loggedInUser.password)) {
@@ -64,7 +62,7 @@ class DeleteAccount extends Component {
                             <div className="card card-body">
                                 <h3 className="text-center mb-4">Delete Account</h3>
                                 <div className="alert alert-danger">
-                                    <a className="close font-weight-light" data-dismiss="alert">×</a>Please enter all fields to delete your account.
+                                    <a className="close font-weight-light" data-dismiss="alert" href="/">×</a>Please enter all fields to delete your account.
                 </div>
                                 <fieldset onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">
@@ -75,7 +73,7 @@ class DeleteAccount extends Component {
                                     </div>
                                     <div className="checkbox">
                                         <label className="small">
-                                            <input name="terms" type="checkbox" />I confirm I wish to <a>delete my account</a>
+                                            <input name="terms" type="checkbox" required/> I confirm I wish to delete my account
                                         </label>
                                     </div>
                                     <input className="btn btn-lg btn-primary btn-block" onClick={this.handleSubmit} value="Delete Account" type="submit" />

@@ -24,7 +24,7 @@ class LogOut extends Component {
                     <div className="card card-body">
                         <h3 className="text-center mb-4">Account Details</h3>
                         <div className="alert alert-danger">
-                            <a className="close font-weight-light" data-dismiss="alert">×</a>Account details below:
+                            <a className="close font-weight-light" data-dismiss="alert" href="/">×</a>Account details below:
             </div>
                         <fieldset onSubmit={this.handleSubmit}>
                             <div className="form-group has-error">
