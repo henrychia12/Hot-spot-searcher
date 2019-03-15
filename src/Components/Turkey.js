@@ -47,16 +47,14 @@ class Turkey extends Component {
                     </div>
                     </header>
                     {(this.state.attractions.map((attraction) =>            
-                    <div key={attraction.locationID}>
+                    <div id="attraction-border" key={attraction.locationID}>
                     <br></br>
                         <br/> <h1>{attraction.locationName}</h1> 
-                        <img src={require("../TurkeyImage/" + attraction.image)} alt="Turkey attraction"/> <br></br>
-                        <br/> {attraction.description}
+                        <img id="image-location" src={require("../TurkeyImage/" + attraction.image)} alt="Turkey attraction"/> <br></br>
+                        <br/><div > {attraction.description}</div>
                     </div>))}
-
-            </div>
+                    </div>
         )
     }
 }
-
 export default Turkey;

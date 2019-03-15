@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../GeneralImages/city.jpg';
+import logo from '../GeneralImage/city.jpg';
 
 class Home extends Component {
     render(){

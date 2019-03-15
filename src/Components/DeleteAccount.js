@@ -38,6 +38,7 @@ class DeleteAccount extends Component {
     }
 
     handleSubmit = () => {
+        let correctDetails = false;
         axios({
             method: "get",
             url: hotspot_ip + ":8080/HotSpot-Project/api/userAccount/getAllAccounts",
@@ -48,6 +49,9 @@ class DeleteAccount extends Component {
                     (this.state.password === this.state.loggedInUser.password)) {
                     this.handleAccountToDelete(this.state.loggedInUser.userID);
                 }
+            }
+            if (correctDetails === false) {
+                alert("Details entered are invalid. Unable to delete account. Please provide correct account details to delete account.");
             }
         })
     }

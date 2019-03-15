@@ -7,21 +7,16 @@ class LogIn extends Component {
         super(props);
 
         this.state = {
-            username: null,
+            userName: null,
             password: null,
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleUsername = event => {
+    handleChange = (e) => {
         this.setState({
-            username: event.target.value
-        });
-    }
-
-    handlePassword = event => {
-        this.setState({
-            password: event.target.value
-        });
+            [e.target.name]: e.target.value
+            });
     }
 
     handleSubmit = () => {
@@ -59,10 +54,10 @@ class LogIn extends Component {
                 </div>
                                 <fieldset onSubmit={this.handleSubmit}>
                                     <div className="form-group has-error">
-                                        <input className="form-control input-lg" onChange={this.handleUsername} placeholder="Username" name="username" type="text" />
+                                        <input className="form-control input-lg" onChange={this.handleChange} placeholder="Username" name="userName" type="text" />
                                     </div>
                                     <div className="form-group has-success">
-                                        <input id="password" className="form-control input-lg" onChange={this.handlePassword} placeholder="Password" name="password" type="password" />
+                                        <input id="password" className="form-control input-lg" onChange={this.handleChange} placeholder="Password" name="password" type="password" />
                                     </div>
                                     <input className="btn btn-lg btn-primary btn-block" onClick={this.handleSubmit} value="Log In" type="submit" />
                                 </fieldset>
