@@ -33,6 +33,12 @@
   width: auto;
 }
 
+#image-location{
+  width: 100%;
+  height: 400px;
+  width: 500px;
+}
+
 #content-stuff {
   position: relative;
 } 
@@ -47,6 +53,17 @@
   position: absolute;
   top: 150px;
   left: 380px;
+}
+
+#attraction-border{
+  border-radius: 25px;
+  width: 60%;
+  margin: 10px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid lightgrey;
+  background-color: rgba(0,0,0,0.05);
+  color: black;
 }
 
 .App-header {

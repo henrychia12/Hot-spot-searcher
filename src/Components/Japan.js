@@ -47,10 +47,10 @@ class Japan extends Component {
                     </div>
                     </header>
                     {(this.state.attractions.map((attraction) =>            
-                    <div key={attraction.locationID}>
+                    <div id="attraction-border" key={attraction.locationID}>
                     <br></br>
                         <br/> <h1>{attraction.locationName}</h1> 
-                        <img src={require("../JapanImage/" + attraction.image)} alt="Japan Welcome"/> <br></br>
+                        <img id="image-location" src={require("../JapanImage/" + attraction.image)} alt="Japan Welcome"/> <br></br>
                         <br/> {attraction.description}
                     </div>))}
 
