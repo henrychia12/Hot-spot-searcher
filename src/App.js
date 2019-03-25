@@ -20,13 +20,13 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          {(sessionStorage.getItem("Account")) === null ? <Route exact path="/logout" component={LogIn} /> : <Route path='/logout' component={LogOut} />}
+          {(sessionStorage.getItem("Account")) === null ? <Route exact path="/deleteaccount" component={LogIn} /> : <Route path='/deleteaccount' component={DeleteAccount} />}
+          {(sessionStorage.getItem("Account")) === null ? <Route exact path="/updateaccount" component={LogIn} /> : <Route path='/updateaccount' component={UpdateAccount} />}
           <Route exact path="/" component={Home} />
           <Route path='/home' component={Home} />
           <Route path='/register' component={Register} />
           <Route path='/login' component={LogIn} />
-          <Route path='/logout' component={LogOut} />
-          <Route path='/deleteaccount' component={DeleteAccount} />
-          <Route path='/updateaccount' component={UpdateAccount} />
           <Route path='/asia' component={Asia} />
           <Route path='/turkey' component={Turkey} />
           <Route path='/japan' component={Japan} />
